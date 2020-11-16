@@ -14,13 +14,13 @@ router.post('/doSubmit', async (req, res, next) => {
       message: '您已定制过赛服，请勿重复提交。'
     });
   } else {
+    console.log(ModelUser.find, ModelUser)
     let count = await ModelUser.find({
       recordId: {
         $gt: 0
       }
     }).countDocuments()
     let order = count + 1;
-    console.log(ModelUser.insert)
     await ModelUser.insert({
       name: data.name,
       sex: data.sex,
