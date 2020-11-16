@@ -20,7 +20,7 @@ router.post('/doSubmit', async (req, res, next) => {
       }
     }).countDocuments()
     let order = count + 1;
-    await ModelUser.insert({
+    await ModelUser.insertOne({
       name: data.name,
       sex: data.sex,
       birth: data.birth,
