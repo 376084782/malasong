@@ -22,13 +22,15 @@ router.post('/doSubmit', async (req, res, next) => {
       }
     }).countDocuments()
     let order = count + 1;
-    await ModelUser1.insert({
+    await ModelUser1.insertMany([{
       name: data.name,
       sex: data.sex,
       birth: data.birth,
       number: data.number,
       content: data.content,
       order: order
+    }], {
+      writeConcern: 0,
     })
     res.json({
       code: 0,
