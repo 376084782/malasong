@@ -60,7 +60,7 @@ router.post('/login', async (req, res, next) => {
   } else {
     res.json({
       code: 9999,
-      message: '您信息填写有误或未报名此次活动'
+      message: '您信息填写有误或未报名此次活动1'
     });
   }
 });
@@ -99,7 +99,7 @@ router.post('/scan', async (req, res, next) => {
   } else {
     res.json({
       code: 9999,
-      message: '您信息填写有误或未报名此次活动'
+      message: '您信息填写有误或未报名此次活动2'
     });
   }
 });
@@ -116,7 +116,7 @@ router.post('/played', async (req, res, next) => {
   } else {
     res.json({
       code: 9999,
-      message: '您信息填写有误或未报名此次活动'
+      message: '您信息填写有误或未报名此次活动3'
     });
   }
 });
@@ -152,7 +152,7 @@ router.post('/check', async (req, res, next) => {
   } else {
     res.json({
       code: 9999,
-      message: '您信息填写有误或未报名此次活动'
+      message: '您信息填写有误或未报名此次活动4'
     });
   }
 });
