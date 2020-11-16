@@ -1,5 +1,5 @@
 var express = require('express');
-import ModelUser from '../models/ModelUser'
+import {ModelUser} from '../models/ModelUser'
 var router = express.Router();
 
 /* GET home page. */
