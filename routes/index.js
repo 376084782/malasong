@@ -27,7 +27,8 @@ router.post('/doSubmit', async (req, res, next) => {
       birth: data.birth,
       number: data.number,
       content: data.content,
-      order: order
+      order: order,
+      phone: data.phone
     }], {
       writeConcern: 0,
     })
@@ -39,7 +40,8 @@ router.post('/doSubmit', async (req, res, next) => {
         birth: data.birth,
         number: data.number,
         content: data.content,
-        order: order
+        order: order,
+        phone: data.phone
       },
       message: '提交成功'
     });

@@ -5,6 +5,10 @@ import mongoose from '../mongodb/db'
 const Schema = mongoose.Schema;
 // 图鉴表，根据等级
 const ModelUser1 = new Schema({
+  phone: {
+    type: String,
+    default: ''
+  },
   name: {
     type: String,
     default: ''

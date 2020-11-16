@@ -56,15 +56,13 @@ function writeExcel(datas) {
 
   let sheetData = [];
   let map = {
-    cardId: '身份证',
-    nickName: '姓名',
+    name: '姓名',
     sex: '性别',
-    birthday: '生日',
-    phone: '手机号',
-    content: '服装上的印字',
-    recordId: '印字订单号',
-    listGamePlayed: '玩过的游戏',
-    flagGiftGot: '是否领取了小礼物'
+    birth: '生日',
+    number: '号码',
+    content: '烫印内容',
+    order: '订单号',
+    phone:'手机号'
   }
   // 写入表头
   let colTitle = [];
