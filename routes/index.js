@@ -30,6 +30,14 @@ router.post('/doSubmit', async (req, res, next) => {
     })
     res.json({
       code: 0,
+      data: {
+        name: data.name,
+        sex: data.sex,
+        birth: data.birth,
+        number: data.number,
+        content: data.content,
+        order: order
+      },
       message: '提交成功'
     });
   }
