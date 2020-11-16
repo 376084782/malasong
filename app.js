@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-import ModelUser from './models/ModelUser'
+import ModelUser1 from './models/ModelUser1'
 
 import indexRouter from './routes/index'
 import AdminRouter from './routes/admin'

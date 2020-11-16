@@ -1,5 +1,5 @@
 import excelPort from 'node-xlsx';
-import ModelUser from '../models/ModelUser'
+import ModelUser1 from '../models/ModelUser1'
 var express = require('express');
 var router = express.Router();
 var fs = require('fs')
@@ -22,10 +22,10 @@ router.get('/user/list', async (req, res, next) => {
   let data = req.query;
   let page = +data.page || 1;
   let size = +data.size || 20;
-  let list = await ModelUser.find({}).sort({
+  let list = await ModelUser1.find({}).sort({
     "ID": 1
   }).skip(size * (page - 1)).limit(size);
-  let total = await ModelUser.find({}).countDocuments()
+  let total = await ModelUser1.find({}).countDocuments()
   res.json({
     code: 0,
     data: {
@@ -40,8 +40,8 @@ router.get('/user/list', async (req, res, next) => {
 });
 router.post('/user/insert/multi', async (req, res, next) => {
   let data = req.body;
-  await ModelUser.deleteMany({})
-  await ModelUser.insertMany(
+  await ModelUser1.deleteMany({})
+  await ModelUser1.insertMany(
     data.list, {
       writeConcern: 0,
     }
@@ -89,7 +89,7 @@ function writeExcel(datas) {
   return file;
 }
 router.get('/user/excel', async (req, res, next) => {
-  let list = await ModelUser.find({});
+  let list = await ModelUser1.find({});
   let file = writeExcel(list)
   res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
   res.setHeader("Content-Disposition", "attachment; filename=" + "list.xlsx");

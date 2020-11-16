@@ -1,11 +1,12 @@
 var express = require('express');
-import {ModelUser} from '../models/ModelUser'
+import ModelUser1 from '../models/ModelUser1'
 var router = express.Router();
+
 
 /* GET home page. */
 router.post('/doSubmit', async (req, res, next) => {
   let data = req.body;
-  let dataDB = await ModelUser.findOne({
+  let dataDB = await ModelUser1.findOne({
     number: '' + data.number,
   })
   if (dataDB) {
@@ -14,14 +15,14 @@ router.post('/doSubmit', async (req, res, next) => {
       message: '您已定制过赛服，请勿重复提交。'
     });
   } else {
-    console.log(ModelUser.find, ModelUser)
-    let count = await ModelUser.find({
+    console.log(ModelUser1.find, ModelUser1)
+    let count = await ModelUser1.find({
       recordId: {
         $gt: 0
       }
     }).countDocuments()
     let order = count + 1;
-    await ModelUser.insert({
+    await ModelUser1.insert({
       name: data.name,
       sex: data.sex,
       birth: data.birth,
@@ -46,7 +47,7 @@ router.post('/doSubmit', async (req, res, next) => {
 
 router.post('/login', async (req, res, next) => {
   let data = req.body;
-  let dataDB = await ModelUser.findOne({
+  let dataDB = await ModelUser1.findOne({
     nickName: '' + data.nickName,
     cardId: '' + data.cardId
   })
@@ -75,7 +76,7 @@ router.post('/scan', async (req, res, next) => {
     });
     return
   }
-  let dataDB = await ModelUser.findOne({
+  let dataDB = await ModelUser1.findOne({
     cardId: '' + data.cardId
   })
   if (dataDB) {
@@ -106,7 +107,7 @@ router.post('/scan', async (req, res, next) => {
 });
 router.post('/played', async (req, res, next) => {
   let data = req.body;
-  let dataDB = await ModelUser.findOne({
+  let dataDB = await ModelUser1.findOne({
     cardId: '' + data.cardId
   })
   if (dataDB) {
@@ -123,7 +124,7 @@ router.post('/played', async (req, res, next) => {
 });
 router.post('/check', async (req, res, next) => {
   let data = req.body;
-  let dataDB = await ModelUser.findOne({
+  let dataDB = await ModelUser1.findOne({
     cardId: '' + data.cardId
   })
   if (dataDB) {

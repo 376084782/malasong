@@ -4,7 +4,7 @@ import mongoose from '../mongodb/db'
 
 const Schema = mongoose.Schema;
 // 图鉴表，根据等级
-const ModelUser = new Schema({
+const ModelUser11 = new Schema({
   name: {
     type: String,
     default: ''
@@ -31,4 +31,4 @@ const ModelUser = new Schema({
   }
 })
 
-export default mongoose.model('ModelUser', ModelUser);
+export default mongoose.model('ModelUser11', ModelUser11);
