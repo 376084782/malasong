@@ -47,6 +47,25 @@ router.post('/doSubmit', async (req, res, next) => {
     });
   }
 });
+router.post('/getData', async (req, res, next) => {
+  let data = req.body;
+  let dataDB = await ModelUser1.findOne({
+    phone: '' + data.phone,
+  })
+  if (dataDB) {
+    res.json({
+      code: 0,
+      data: dataDB,
+      message: ''
+    });
+  } else {
+    res.json({
+      code: 99,
+      data: {},
+      message: '未提交过'
+    });
+  }
+});
 
 router.post('/login', async (req, res, next) => {
   let data = req.body;
