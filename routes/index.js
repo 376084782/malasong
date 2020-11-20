@@ -47,6 +47,7 @@ router.post('/getData', async (req, res, next) => {
   let data = req.body;
   let dataDB = await ModelUser1.findOne({
     phone: '' + data.phone,
+    name: data.name
   })
   if (dataDB) {
     res.json({
